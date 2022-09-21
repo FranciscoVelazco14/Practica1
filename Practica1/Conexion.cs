@@ -13,7 +13,7 @@ namespace Practica1
     {
         static SqlConnection cnx;
         static string cadena = "Address= 192.168.101.10; initial catalog= QTUBEDsllo; integrated security=False;persist security info=True; MultipleActiveResultSets=True; User ID=dba_jr; Password=E2aZI,Qm}x; Application Name=ENLACE 2.4.0";
-
+        static string cambios;
         private static void Conectar()
         {
             cnx = new SqlConnection(cadena);
