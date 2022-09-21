@@ -14,19 +14,25 @@ namespace Practica1
         {
             MessageBox.Show(mensaje, "Aviso!",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
-        public static void LlenarCombo(string consulta, ComboBox combo)
+        public static void LlenarCombo(string consulta, ComboBox combo,string id, string columna)
         {
-           /* DataTable dt;
-            dt = Conexion.EjecutaSeleccion(consulta);
+            DataTable dt;
+            dt = Conexion.EjecutarConsulta(consulta);
             if (dt == null)
             {
                 return;
             }
             combo.Items.Clear();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                combo.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-            }*/
+            combo.Items.Add("asd");
+            /* for (int i = 0; i < dt.Rows.Count; i++)
+             {
+                 combo.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+             }*/
+
+
+            //combo.DataSource = dt;
+            combo.ValueMember = id;
+            combo.DisplayMember = columna;
         }
     }
 }

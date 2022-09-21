@@ -23,7 +23,7 @@ namespace Practica1
         {
             cnx.Close();
         }
-        public static int EjecutaConsulta(string consulta)
+        public static int ConsultaColumnasAfectadas(string consulta)
         {
             int filasAfectadas;
             Conectar();
@@ -32,6 +32,17 @@ namespace Practica1
             Desconectar();
             return filasAfectadas;
         }
+        public static DataTable EjecutarConsulta(string consulta)
+        {
+            DataTable dt = new DataTable();
+            Conectar();
+            SqlDataAdapter da = new SqlDataAdapter(consulta,cnx);
+            da.Fill(dt);
+            Desconectar();
+            return dt;
+
+        }
+
         public static void EjecutaSeleccionDataGrid(string consulta, DataGridView DataGrid)
         {
             DataTable dt = new DataTable();

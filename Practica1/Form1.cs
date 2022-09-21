@@ -19,11 +19,17 @@ namespace Practica1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //int  registrosAfectados = 0;
-            //Conexion.EjecutaConsulta(textBox1.Text);
-            //Acciones.Mensaje("Registros Afectados: " + registrosAfectados);
+         //   int  registrosAfectados = 0;
+            Acciones.LlenarCombo(textBox1.Text,comboBox1,"idEmpleados","Nombre");
+          //  Acciones.Mensaje("Registros Afectados: " + registrosAfectados);
             Conexion.EjecutaSeleccionDataGrid(textBox1.Text,dataGridView1);
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+           // Acciones.Mensaje(comboBox1.SelectedIndex.ToString());
         }
     }
 }
