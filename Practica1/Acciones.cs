@@ -25,18 +25,23 @@ namespace Practica1
                 return;
             }
             combo.Items.Clear();
-            // combo.Items.Add("asd");
             /* for (int i = 0; i < dt.Rows.Count; i++)
              {
                  combo.Items.Add(dt.Rows[i].ItemArray[0].ToString());
              }*/
 
-            //combo.Items.Insert(0,"PRUEBA");
             combo.ValueMember = id;
             combo.DisplayMember = columna;
 
-            combo.Items.Insert(0, "TODAS");
+            //AQUI SE AGREGA EL RENGLON TODAS
+            DataRow nuevaFila = dt.NewRow();
+            nuevaFila[id] = 0;
+            nuevaFila[columna] = "TODAS";
+            dt.Rows.InsertAt(nuevaFila, 0);
+            //
+
             combo.DataSource = dt;
+
         }
     }
 }
