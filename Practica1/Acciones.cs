@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Collections;
+using System.Data.SqlClient;
+using ListView = System.Windows.Forms.ListView;
 
 namespace Practica1
 {
@@ -43,5 +45,55 @@ namespace Practica1
             combo.DataSource = dt;
 
         }
+
+
+        public static void LlenarDataGridView(string consulta,DataGridView dgv )
+        {
+            DataTable dt = new DataTable();
+            dt = Conexion.EjecutarConsulta(consulta);
+            if (dt == null)
+            {
+                return;
+            }
+            dgv.Rows.Clear();
+            dgv.Columns.Clear();
+
+            dgv.DataSource = dt;
+        }
+
+        public static void LlenarListView(string consulta,  System.Windows.Forms.ListView lv )
+        {
+            DataTable dt;
+            dt = Conexion.EjecutarConsulta(consulta);
+            if (dt == null)
+            {
+                return;
+            }
+
+            lv.View = View.Details;
+            lv.GridLines = true;
+            lv.FullRowSelect = true;
+
+            for (int i=0; i <= dt.Rows.Count;i++)
+            {
+                lv.Columns.Add(dt.Columns[i].ToString(), 70);
+            }
+
+            foreach (DataRow renglon in dt.Rows)
+            {
+                string[] arr = new string[dt.Columns.Count];
+                ListViewItem itm = new ListViewItem();
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    arr[i] = renglon[i].ToString();
+                    itm = new ListViewItem(arr);
+                    //lv.Items.Add(dt.Rows[i].ItemArray[0].ToString());
+                }
+                lv.Items.Add(itm);
+            }
+           
+        }
+
     }
 }

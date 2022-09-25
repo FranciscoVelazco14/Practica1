@@ -12,7 +12,7 @@ namespace Practica1
     internal class Conexion
     {
         static SqlConnection cnx;
-        static string cadena = "Address= 192.168.101.10; initial catalog= QT; integrated security=False;persist security info=True; MultipleActiveResultSets=True; User ID=dba_jr; Password=******; Application Name=ENLACE";
+        static string cadena = "Address= 192.168.1.6; initial catalog= Club; integrated security=False;persist security info=True; MultipleActiveResultSets=True; User ID=sa; Password=abc123";
 
         private static void Conectar()
         {

@@ -19,8 +19,10 @@ namespace Practica1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Acciones.LlenarCombo(textBox1.Text,comboBox1,"Usuario","Nombre");
-            Conexion.EjecutaSeleccionDataGrid(textBox1.Text,dataGridView1);
+            //Acciones.LlenarCombo(textBox1.Text,comboBox1,"id_Articulo","Articulo");
+            //Conexion.EjecutaSeleccionDataGrid(textBox1.Text,dataGridView1);
+            Acciones.LlenarDataGridView(textBox1.Text,dataGridView1);
+            Acciones.LlenarListView(textBox1.Text,listView1);
 
         }
 
